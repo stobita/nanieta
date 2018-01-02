@@ -2,12 +2,16 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
+interface HelloProps {
+  name: string
+}
+
+const Hello: React.SFC<HelloProps> = props => (
+  <div>Hello {props.name}</div>
 )
 
 Hello.defaultProps = {
@@ -20,7 +24,7 @@ Hello.propTypes = {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Hello name="React with TypeScript" />,
     document.body.appendChild(document.createElement('div')),
   )
 })
